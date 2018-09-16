@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>dictionary-by-array</title>
+    <script>
+        // console.log(str);
+        let vi = ["Xin chào", "Tạm biệt", "Chúc ngủ ngon"];
+        let eng = ["Hello", "Goodbye", "Good night"];
+        let asw = "";
+
+        function biendich() {
+            let noidung = document.getElementById("noidung").value;
+            for (let i = 0; i < vi.length; i++) {
+                if (noidung === vi[i]) {
+                    asw = eng[i];
+                    i = vi.length;
+                } else {
+                    asw = "This dictionary hasn't this word";
+                }
+            }
+            return document.getElementById("ketqua").innerHTML = asw;
+        }
+    </script>
 </head>
 <body>
-<button type ="button" onclick = "translate(prompt('Input your word to translate: '))">DICTIONARY</button>
-<script>
-    console.log(str);
-    let vi = ["Xin chào", "Tạm biệt", "Chúc ngủ ngon"];
-    let eng = ["Hello", "Goodbye", "Good night"];
-    let asw = "";
-    function translate(str) {
-        for (let i = 0; i < vi.length; i++) {
-            if (str === vi[i]) {
-                asw = eng[i];
-                i = vi.length;
-            } else {
-                asw = "This dictionary hasn't this word";
-            }
-        }
-        document.wrie(asw);
-    }
-</script>
+<input type="text" id="noidung"/>
+<button type="button" onclick="biendich()">Tra cứu</button>
+<p id="ketqua"></p>
 </body>
 </html>
